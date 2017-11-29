@@ -38,6 +38,12 @@ export class InputService {
         let newRawValue = integerPart;
         let decimalPart = onlyNumbers.slice(onlyNumbers.length - precision);
 
+        /* Dodao mkern zbog tečajnog standarda */
+        if (decimalPart.length < precision && precision == 6) {
+            decimalPart = '00000' + decimalPart;
+        }
+        /* Dodao mkern zbog tečajnog standarda */
+
         if (precision > 0) {
             newRawValue += decimal + decimalPart;
         }
